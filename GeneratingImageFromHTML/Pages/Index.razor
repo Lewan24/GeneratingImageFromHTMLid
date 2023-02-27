@@ -1,0 +1,50 @@
+﻿@page "/"
+
+@inject IJSRuntime JS
+
+@code {
+    private async Task GenerateImage()
+    {
+        await JS.InvokeVoidAsync("GenerateImg", "html-content-holder");
+    }
+
+}
+
+<PageTitle>Index</PageTitle>
+
+<section id="html-content-holder">
+    <article class="bg-secondary" style="max-width: 250px">
+        <table class="table table-borderless">
+            <thead class="thead bg-danger bg-gradient text-white text-center">
+            <tr>
+                <th colspan="5">Dania obiadowe</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr class="text-white text-center">
+                <td>
+                        <table class="table text-white">
+                        <tbody>
+                        <tr>
+                            <td class="">Jakas potrawa</td>
+                            <td>400g</td>
+                        </tr>
+                        <tr>
+                            <td class="">Jakas potrawa</td>
+                            <td>300g</td>
+                        </tr>
+                        <tr>
+                            <td class="">Jakas potrawa</td>
+                            <td>500g</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </td>
+                <td>18 zł</td>
+            </tr>
+            </tbody>
+        </table>
+    </article>
+</section>
+
+<button id="btnConvert" @onclick="GenerateImage">Generate Png</button>
